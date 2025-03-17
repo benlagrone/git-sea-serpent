@@ -22,12 +22,14 @@ def image_to_pixel_art(path, output_size=(52, 7), shades=4):
     
     # Convert to list of lists
     pixel_art = img_normalized.tolist()
-    
+    first_row = pixel_art.pop(0)  # This removes the first row from the list
+    pixel_art.append(first_row)  
     return pixel_art
 
 # Example usage
 path = 'image/serpent.png'
 pixel_art = image_to_pixel_art(path, shades=4)  # Adjust 'shades' as needed
+
 
 # Optionally, save to a JSON file
 import json
